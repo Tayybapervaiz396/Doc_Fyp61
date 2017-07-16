@@ -15,7 +15,7 @@
     <div class="container" style=" background-color: #333; border-radius:5%; width:70% ; height:700%;  margin-top:8%; margin-bottom:6%">
         <h1 style="color:white; font-family:Gabriola; align-content:center; margin-bottom:3%">Patient Registration</h1>
 
-        <form  action="/Client/Plus" style=" margin-bottom:2%; ">
+        <form   style=" margin-bottom:2%; ">
             <fieldset id="inputs">
                 <div class="row">
                     <div class="col-sm-4">
@@ -194,7 +194,7 @@
                alert(Bb);
                 $.ajax({
 
-                    url:"http://localhost:35003/api/REGISTER/",
+                    url: "http://quickfyp61.apphb.com/api/REGISTER",
                     type: "Post",
                     data: JSON.stringify({
                         FirstName: Aa, LastName: Bb, Email: Cc,  PhoneNo: Ee,
@@ -232,7 +232,7 @@
                 var data = id; +
                 $.ajax({
                     type: 'GET',
-                    url: "http://localhost:1848/api/REGISTER/" + data,
+                    url: "http://quickfyp61.apphb.com/api/REGISTER" + data,
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);

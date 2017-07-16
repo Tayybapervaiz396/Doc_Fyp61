@@ -11,10 +11,10 @@
 </style>
 
 <body style="background-color: rgba(81, 92, 82, 1);">
-    <div class="container" style=" background-color: #333; border-radius:5%; width:70% ; height:700%;  margin-top:8%; margin-bottom:6%">
+    <div class="container" style=" background-color: #333; border-radius:5%; width:70% ;  height:700%;  margin-top:8%; margin-bottom:6%">
         <h1 style="color:white; font-family:Gabriola;margin-left:34%; margin-bottom:3%">Online Appointment</h1>
 
-        <form action="/Client/Add" style=" margin-bottom:2%; ">
+        <form  style=" margin-bottom:2%; ">
             <fieldset id="inputs">
                 <div class="row">
                     <div class="col-sm-4">
@@ -189,7 +189,7 @@
 
                 $.ajax({
 
-                    url: "http://localhost:35003/api/APPOINTMENT/",
+                    url: "http://quickfyp61.apphb.com/api/APPOINTMENT",
                     type: "Post",
                     data: JSON.stringify({ FirstName: My, LastName: Your, Email: Em,  PhoneNo: P, Address: AH, DOBirth: DOB, Gender: G, City: C, MStatus: MS, Departments: Dp, OfcNo: Of, GName: Gn, GPhoneNo: Gp, Occupation: Oc, CDrName: Cdr, Responsible: R, RelationTopatient: P }), //{ Name: name, Address: address, DOB: dob },
                     contentType: 'application/json; charset=utf-8',
