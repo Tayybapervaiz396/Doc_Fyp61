@@ -82,7 +82,7 @@
                     <!--SignUp Code-->
                     <h1>Sign Up To Make Your Account  </h1>
 
-                    <form action="/Main/Add">
+                    <form >
                         <fieldset id="inputs">
 
                             <div class="row">
@@ -99,7 +99,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <input class="form-control" id="Password" name="Password" placeholder="Password*"
+                                    <input  class="form-control" id="Password" name="Password" placeholder="Password*"
                                            type="password" />
                                     <br />
                                 </div>
@@ -186,7 +186,7 @@
 
                 $.ajax({
 
-                    url: "http://localhost:35003/api/SIGNUP/",
+                    url: "http://quickfyp61.apphb.com/api/SIGNUP",
                     type: "Post",
                     data: JSON.stringify({
                         FirstName: a, LastName: b, Password: c,

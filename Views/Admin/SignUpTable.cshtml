@@ -29,39 +29,7 @@
 
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach (var x in Model)
-                        {
-                            <tr>
-
-                                <td>@x.FirstName</td>
-                                <td>@x.LastName</td>
-                                <td>@x.Password</td>
-                                <td>@x.CPassword</td>
-                                <td>@x.Email</td>
-                                <td>@x.Address</td>
-                                <td>@x.Gender</td>
-                                <td>@x.PhoneNo</td>
-                                <td>@x.City</td>
-                                <td>@x.DOBirth</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            <span> Option</span>
-                                        </button>
-                                        <ul class="dropdown-menu stay-open pull-right" role="menu" style="padding: 15px; min-width: 100px;">
-                                            <li><button id="EditApi" type="submit">Update</button></li>
-                                            <li><button id="deleteApi" type="submit" onclick="deleteApi">Delete</button></li>
-                                            
-
-                                        </ul>
-                                    
-                                    </div>
-                                </td>
-
-                            </tr>
-                        }
-                    </tbody>
+                   
                   
                     
 
@@ -76,7 +44,7 @@
                             // debugger;
                             var id = $("#Id").val();
                             $.ajax({
-                                url: "http://localhost:35003/api/SIGNUP/ " + id,
+                                url: "http://quickfyp61.apphb.com/api/SIGNUP " + id,
                                 type: "Delete",
                                 success: function (data) {
                                     alert('Deleted Successfully');
@@ -114,7 +82,7 @@
 
 
                             $.ajax({
-                                url: "http://localhost:35003/api/SIGNUP/",
+                                url: "http://quickfyp61.apphb.com/api/SIGNUP",
                                 type: "Put",
                                 data: JSON.stringify({
                                     FirstName: a, LastName: b, Password: c,
