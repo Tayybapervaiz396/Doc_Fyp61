@@ -1,0 +1,269 @@
+﻿
+@{
+    ViewBag.Title = "PRegForm";
+    Layout = "~/Views/ClientDashLayout.cshtml";
+
+    <link href="~/Content/custom.css" rel="stylesheet" />
+}
+<style>
+    .contr {
+        height: 40px;
+    }
+</style>
+
+<body style="background-color: rgba(81, 92, 82, 1);">
+    <div class="container" style=" background-color: #333; border-radius:5%; width:70% ; height:700%;  margin-top:8%; margin-bottom:6%">
+        <h1 style="color:white; font-family:Gabriola; align-content:center; margin-bottom:3%">Patient Registration</h1>
+
+        <form  action="/Client/Plus" style=" margin-bottom:2%; ">
+            <fieldset id="inputs">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input id="FirstName" class="form-control contr" type="text" name="FirstName" placeholder="First Name*" required /><br />
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="LastName" class="form-control contr" type="text" name="LastName" placeholder="Last Name*" required /><br />
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="Email" class="form-control contr" type="email" name="Email" placeholder="Email adress*" required /><br />
+                    </div>
+
+                </div>
+                <div class="row">
+                   
+                    <div class="col-sm-4 ">
+                        <input id="PhoneNo" type="text" class="form-control contr" name="PhoneNo" placeholder=" Phone No*" required /><br />
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="Address" type="text" class="form-control contr" name="Address" placeholder="Home Address" required><br />
+                       
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="DOBirth" class="form-control contr" type="date" name="DOBirth" placeholder=" Date of Birth*" required /><br />
+                        <br /> </div>
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="col-sm-4 ">
+                        <label style="color:white">Gender:</label>  &nbsp;<input value="Female" type="radio" name="Gender" />
+                        <label style=" color:white">
+                            Female
+                        </label>
+                        <input type="radio" name="Gender" value="Male" />&nbsp;<label style=" color:white"> Male</label>
+
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="City" class="form-control contr" type="text" name="City" placeholder="City*" required /><br />
+                    </div>
+
+                </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+
+
+                            <select class=" form-control contr" id="MartialStatus" name="MartialStatus"
+                                     style="width:96%; ">
+
+                                <option value="Martial"  >Martial Status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                            </select><br /><br />
+                        </div>
+
+                        <div class="col-sm-4 ">
+                            <select class=" form-control contr" id="Department" name="Department"
+                                     style="width:96%; ">
+
+                               <option value="Department">Choose Department</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Dentisry">Dentisry</option>
+                                <option value="Emergency Room">Emergency Room</option>
+                                <option value="Surgury">Surgury</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="Laboratory">Laboratory</option>
+                            </select><br />
+                        </div>
+                        <div class="col-sm-4" >
+                            <input id="OfcNo" class="form-control contr" type="tel" style="width:96%"
+                                   name="OfcNo" placeholder="Office Phone No*" required /><br />
+                        </div>
+                     
+
+
+                    </div>
+
+                    <div class="row">
+                       
+
+
+                        <div class="col-sm-4 " >
+
+                            <input id="GuardianName" class="form-control contr" type="text" name="GuardianName" style="width:96%" placeholder="Guardian Name*" required /><br />
+                        </div>
+                        <div class="col-sm-4 " >
+                            <input id="GPhone" class="form-control contr" type="tel" name="GPhone" style="width:96%" placeholder="Guardian Phone No*" required /><br />
+                        </div>
+                        <div class="col-sm-4" >
+                            <input id="Occupation" class="form-control contr" type="text" style="width:96%"
+                                   name="Occupation" placeholder="Occupation*" required /><br />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                       
+                        <div class="col-sm-4 ">
+                            <input id="ConsultingDrName" class="form-control contr" style="width:96%" 
+                                   type="text" name="ConsultingDrName"
+                                   placeholder="Consulting Dr. Name*" required /><br />
+                        </div>
+                        <div class="col-sm-4" >
+                            <input id="Responsible" class="form-control contr " type="text" name="Responsible" style="width:96%"
+                                   placeholder="Who is financially responsible for Doctor?*" required /><br />
+                        </div>
+                        <div class="col-sm-4 " >
+                            <input id="EmergencyNo" class="form-control contr" type="tel" style="width:96%"
+                                   name="EmergencyNo" placeholder="Emergency No*" required /><br />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                       
+                        <div class="col-sm-4 " >
+                            <input id="Relationship" class="form-control contr" style="width:96%"
+                                    type="text" name="Relationship"
+                                   placeholder="Relationship To Patient*" required /><br />
+                        </div>
+
+                    </div>
+
+                
+
+
+                <input data-toggle="modal" data-target="#yModal" type="submit" id="RegButton" value="RegButton" style="margin-left:45%; width:12%; height:40px; text-align:center">
+              
+                <!-- Modal -->
+                <div class="modal fade" id="yModal" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Status: Request Submitted</h4>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <script lang="ja" type="text/javascript">
+        $(document).ready(function () {
+            $("#RegButton").click(function () {
+                var Aa = $("#FirstName").val();
+                var Bb = $("#LastName").val();
+                var Cc = $("#Email").val();
+               
+                var Ee = $("#PhoneNo").val();
+              
+                var Ff = $("#Address").val();
+                var Gg = $("#DOBirth").val();
+                var Hh = $("#Gender").val();
+        
+                var Ii = $("#City").val();
+                var Jj = $("#MartialStatus").val();
+                var Kk = $("#Department").val();
+                var Ll = $("#WardNo").val();
+                var Mm = $("#OfcNo").val();
+                var Nn = $("#GuardianName").val();
+                var Oo = $("#GPhone").val(); 3
+                var Pp = $("#Occupation").val();
+                var Qq = $("#ConsultingDrName").val();
+                var Rr = $("#BedNo").val();
+                var Ss = $("#Responsible").val();
+                var Tt = $("#EmergencyNo").val();
+                var Uu = $("#Relationship").val();
+                alert(Aa);
+               alert(Bb);
+                $.ajax({
+
+                    url:"http://localhost:35003/api/REGISTER/",
+                    type: "Post",
+                    data: JSON.stringify({
+                        FirstName: Aa, LastName: Bb, Email: Cc,  PhoneNo: Ee,
+                        Address: Ff, DOBirth: Gg, Gender: Hh,
+                        City: Ii, MartialStatus: Jj, Department: Kk, WardNo: Ll,
+                        OfcNo: Mm, GuardianName: Nn,
+
+                        GPhone: Oo, Occupation: Pp, ConsultingDrName: Qq, BedNo: Rr,
+                        Responsible: Ss, EmergencyNo: Tt,
+                      Relationship: Uu
+
+                    }), //{ Name: name, Address: address, DOB: dob },
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                       
+                    },
+                  //  error: function () { alert('error'); }
+                });
+            });
+        });
+
+        //Get Code
+
+        $(document).ready(function () {
+
+            // code to read selected table row cell data (values).
+            $("#AppoSubmit").on('click', '#update', function () {
+
+                $("#table1").hide();
+                // get the current row
+                var currentRow = $(this).closest("tr");
+
+                var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                var data = id; +
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:1848/api/REGISTER/" + data,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        var str = "";
+
+                        str += "<form action='#' method='post'>";
+
+                        str += "<input type='text' id='email' value='" + data.Email + "'/>"
+                        str += "<input type='Password' id='pass' value='" + data.Password + "'/>"
+
+                        str += "<input type='submit' onclick='AppoSubmit' value='change' />"
+
+
+                        str += "</form>";
+
+                        $('#zaidi').html(str);
+                    },
+
+                    error: function (msg) { alert(msg); }
+
+
+                });
+            });
+        });
+
+
+    </script>
+
+
+
+
+
+
+</body>

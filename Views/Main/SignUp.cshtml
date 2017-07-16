@@ -1,0 +1,340 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/MainFirstLayout.cshtml";
+}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="~/Content/custom.css" rel="stylesheet" />
+
+
+<link href="~/Content/SignInSheet.css" rel="stylesheet" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    'use strict';
+    $('input[type="password"]').on('focus', function () {
+        $('*').addClass('password');
+    }).on('focusout', function () {
+        $('*').removeClass('password');
+    });
+    ;
+</script>
+
+
+
+<body style="background-color: rgba(81, 92, 82, 1);">
+
+
+   
+    <div class="login-wrap " style="margin-top:7%">
+    
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    @using (Html.BeginForm("Login", "Main", FormMethod.Post))
+                    {
+
+                        <h1> Sign In To Doctor Quick</h1>
+                        <div class="owl">
+                            <div class="hand"></div>
+                            <div class="hand hand-r"></div>
+                            <div class="arms">
+                                <div class="arm"></div>
+                                <div class="arm arm-r"></div>
+                            </div>
+                        </div>
+                        <div class="form" style="background-color: rgba(97, 65, 39, 1)">
+                            <div class="control">
+                                <label for="email" class="fa fa-envelope"></label>
+                                <input id="Email" required class="form-control" placeholder="Email" type="email">
+                            </div>
+                            <div class="control">
+                                <label for="password" class="fa fa-asterisk"></label>
+                                <input class="form-control" required id="Password" placeholder="Password" type="password">
+                            </div>
+
+                            <button style="margin-left:28%" type="submit" id="SignIn" value="Sign In"> Sign In </button>
+                          
+                        </div>
+                          <div>
+                                @if (TempData["Error"] != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <p>@TempData["Error"].ToString()</p>
+                                    </div>
+                                }
+                            </div>
+
+
+                    }
+
+                </div>
+                <div class="sign-up-htm">
+
+                    <!-- ./container -->
+                    <!--SignUp Code-->
+                    <h1>Sign Up To Make Your Account  </h1>
+
+                    <form action="/Main/Add">
+                        <fieldset id="inputs">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input id="FirstName" style="background-color:rgba(194, 112, 76, 1)" class="form-control" type="text" name="FirstName"
+                                           placeholder="First Name*" required /><br />
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <input id="LastName" class="form-control" type="text" name="LastName"
+                                           placeholder="Last Name*" required /><br />
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="Password" name="Password" placeholder="Password*"
+                                           type="password" />
+                                    <br />
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <input id="CPassword" type="password" class="form-control" name="CPassword"
+                                           placeholder=" Confirm Password*" required />
+                                    <br />
+                                </div>
+
+
+                            </div><input id="Email" type="email" class="form-control" style="width: 100%; " name="Email" placeholder="Email*" required><br />
+
+                            <input id="Address" class="form-control" type="text" style="width: 100%; " name="Address" placeholder="Address*" required /><br />
+
+
+
+                            <label style=" color:white">Gender:</label>  &nbsp;<input type="radio" name="Gender" />
+                            <label style=" color:white">
+                                Female
+                            </label>
+                            <input type="radio" name="Gender" id="Gender" /> &nbsp;<label style=" color:white"> Male</label>
+                            <br><br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input id="PhoneNo" type="tel" class="form-control" name="PhoneNo" placeholder="Phone No*" required /><br />
+                                </div>
+                                <div class="col-sm-6 ">
+                                    <input id="City" class="form-control" type="text" name="City" placeholder="City*" required /><br />
+                                </div>
+
+
+                            </div>
+
+                            <input id="DOBirth" class="form-control" type="date" style="width: 100%; " name="DOBirth" placeholder=" Date of Birth*" required /><br />
+
+                            <button type="submit" id="SUButton" value="Sign Up" style=" margin-left:45%; margin-bottom:2%; border-radius: 10px; font-family: Gabriola;
+                  color: rgba(194, 112, 76, 1); font-size:25px; border: solid double">
+                                Register
+                            </button>
+                        </fieldset>
+                    </form>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script lang="ja" type="text/javascript">
+        $(document).ready(function () {
+            $('#linkClose').click(function () {
+                $('divError').modal('fade');
+            });
+
+            $("#SUButton").click(function () {
+                var a = $("#FirstName").val();
+                var b = $("#LastName").val();
+                var c = $("#Password").val();
+                var d = $("#CPassword").val();
+                var e = $("#Email").val();
+                var f = $("#Address").val();
+                var g = $("#Gender").val();
+                var h = $("#PhoneNo").val();
+                var i = $("#City").val();
+                var j = $("#DOBirth").val();
+
+                alert(a);
+                alert(b);
+                // alert(Email);
+                //alert(Address);
+                //alert(Gender);
+                // alert(PhoneNo);
+                // alert(City);
+                // alert(DOBirth);
+
+                $.ajax({
+
+                    url: "http://localhost:35003/api/SIGNUP/",
+                    type: "Post",
+                    data: JSON.stringify({
+                        FirstName: a, LastName: b, Password: c,
+                        CPassword: d, Email: e, Address: f, Gender: g, PhoneNo: h,
+                        City: i, DOBirth: j
+                    }), //{ Name: name, Address: address, DOB: dob },
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+
+                    },
+                    success: function () {
+                        $('SuccessModal').modal('show');
+                    },
+                    error: function (jqXHR) {
+                        $('divErrorText').text(jqXHR.responseText);
+                        $('divError').show('fade');
+                    }
+
+                });
+
+            });
+        });
+
+        $(document).ready(function () {
+
+            // code to read selected table row cell data (values).
+            $("#SignIn").on('click', '#update', function () {
+
+                $("#table1").hide();
+                // get the current row
+                var currentRow = $(this).closest("tr");
+
+                var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                var data = id; +
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:35003/api/SIGNUP/" + data,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        var str = "";
+
+                        str += "<form action='#' method='post'>";
+
+                        str += "<input type='text' id='Email' value='" + data.Email + "'/>"
+                        str += "<input type='Password' id='Password' value='" + data.Password + "'/>"
+
+                        str += "<input type='submit' onclick='SignIn' value='change' />"
+
+
+                        str += "</form>";
+
+                        $('#zaidi').html(str);
+                    },
+
+                    error: function (msg) { alert(msg); }
+
+
+                });
+            });
+        });
+
+
+    </script>
+
+
+
+
+
+
+    <!--Get Code
+
+     $(document).ready(function () {
+     $.ajax({
+     url: "http://localhost:35003/api/SIGNUP/",
+     type: "Get",
+     datatype:'json',
+     success: function (data) {
+     console.log(data);
+     var str="";
+     for (var i = 0; i < data.length; i++)
+     {
+     str +="<tr>
+         ";
+         str +="
+         <td id='r"+ i +"'>" + data[i].FirstName + "</td>"
+         str +="
+         <td id='r"+ i+" '>" + data[i].LastName + "</td>"
+         str +="
+         <td id='r"+i+"'>"   + data[i].Password + "</td>
+         <td>
+             "
+             str +="
+         <td id='r"+i+"'>"   + data[i].CPassword + "</td>
+    "
+     str +="<td id='r"+ i +"'>" + data[i].Email + "</td>"
+     str +="<td id='r"+ i+" '>" + data[i].Address + "</td>"
+     str +="<td id='r"+i+"'>"   + data[i].Gender + "</td><td>
+         "
+         str +="
+     <td id='r"+i+"'>"   + data[i].PhoneNo + "</td>"
+     str +="<td id='r"+i+"'>"   + data[i].City + "</td>"
+         str +="
+     <td id='r"+i+"'>"   + data[i].DOBirth + "</td>"
+     "
+
+     str += "
+                <td id='r"+i+"'>"  data[i].DOB + "</td></tr>").appendTo("#SignUpTable");
+
+     str +=
+     <input type="submit" class="button" value="Sign In" id="Submit">
+     "
+     str +="<a href='" +data[i].Id+" '>Update</a>" ;
+     }
+     $('#abc').html(str);
+     },
+     error: function (msg) { alert(msg); }
+     });
+     });
+
+         -->
+    //Me Get Code
+    <!--
+
+    -->
+    <!--Delete Code -->
+
+    <script>
+        $(document).ready(function () {
+            $("#deleteApi").click(function () {
+                // debugger;
+                var id = $("#Id").val();
+                $.ajax({
+                    url: "http://localhost:35003/api/SIGNUP/" + id,
+                    type: "Delete",
+                    success: function (data) {
+                        alert('Deleted Successfully');
+                        window.location.href = "/Admin/PAppForm";
+                    },
+                    error: function (msg) { alert(msg); }
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+</body>

@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = "PAppForm";
+    Layout = "~/Views/ClientDashLayout.cshtml";
+    }
+
+    <style>
+    .contr {
+        height: 40px;
+    }
+</style>
+
+<body style="background-color: rgba(81, 92, 82, 1);">
+    <div class="container" style=" background-color: #333; border-radius:5%; width:70% ; height:700%;  margin-top:8%; margin-bottom:6%">
+        <h1 style="color:white; font-family:Gabriola;margin-left:34%; margin-bottom:3%">Online Appointment</h1>
+
+        <form action="/Client/Add" style=" margin-bottom:2%; ">
+            <fieldset id="inputs">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input id="FirstName" class="form-control contr" type="text" name="FirstName" placeholder="First Name*" required /><br />
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="LastName" class="form-control contr" type="text" name="LastName" placeholder="Last Name*" required /><br />
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="Email" class="form-control contr" type="email" name="Email" placeholder="Email*" required /><br />
+                    </div>
+
+                </div>
+                <div class="row">
+                    
+                    <div class="col-sm-4 ">
+                        <input id="PhoneNo" type="tel" class="form-control contr" name="PhoneNo" placeholder=" Phone No*" required /><br />
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="Address" type="text" class="form-control contr" name="Address" placeholder="Address*" required><br />
+                      
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="DOBirth" class="form-control contr" type="date" name="DOBirth"
+                               placeholder=" Date of Birth*" required /><br />
+                        <br />   </div>
+                </div>
+
+
+                <div class="row">
+                   
+                    <div class="col-sm-4 ">
+                        <label style="color:white">Gender:</label>  &nbsp;
+                        <input type="radio" name="Gender" value="Female" />
+                        <label style=" color:white">
+                            Female
+                        </label>
+                        <input type="radio" name="Gender" id="Gender"  value="Male"/> &nbsp;<label style=" color:white"> Male</label>
+
+                    </div>
+                    <div class="col-sm-4 ">
+                        <input id="City" class="form-control contr" type="text" name="City" placeholder="City*" required /><br />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+
+
+                        <select class=" form-control contr" id="MStatus" name="MStatus" required
+                                style="width:96%; ">
+
+                            <option value="Martial">Martial Status</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                        </select><br />
+                    </div>
+
+                    <div class="col-sm-4 ">
+                        <select class=" form-control contr" id="Departments" name="Departments"
+                              required   style="width:96%; ">
+
+                            <option value="Department">Choose Department</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dentisry">Dentisry</option>
+                            <option value="Emergency Room">Emergency Room</option>
+                            <option value="Surgury">Surgury</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Laboratory">Laboratory</option>
+                        </select><br />
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input id="OfcNo" class="form-control contr" type="tel" style="width:96%" name="OfcNo" placeholder="Office Phone No*" required /><br />
+                    </div>
+
+
+
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-4 " >
+
+                        <input id="GName" class="form-control contr" type="text" name="GName" style="width:96%" placeholder="Guardian Name*" required /><br />
+                    </div>
+
+
+                    <div class="col-sm-4 " >
+                        <input id="GPhoneNo" class="form-control contr" type="tel" name="GPhoneNo"
+                                style="width:96%" placeholder="Guardian Phone No*" required /><br />
+                    </div>
+                    <div class="col-sm-4" >
+                        <input id="Occupation" class="form-control contr" type="text" style="width:96%" 
+                               name="Occupation" placeholder="Occupation*" required /><br />
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-4 " >
+                        <input id="CDrName" class="form-control contr" style="width:96%" type="text" name="CDrName"
+                               placeholder="Consulting Dr. Name*" required /><br />
+                    </div>
+                    <div class="col-sm-4" >
+                        <input id="Responsible" class="form-control contr " type="text" name="Responsible" style="width:96%"
+                               placeholder="Who is financially responsible for Doctor?*" required /><br />
+                    </div>
+                    <div class="col-sm-4 " >
+                        <input id="RelationToPatient" class="form-control contr" style="width:96%" type="text" name="RelationToPatient"
+                               placeholder="Relationship To Patient*" required /><br />
+                    </div>
+
+                </div>
+
+
+
+
+                <input id="AppoSubmit" type="submit" value="AppoSubmit" style="margin-left:45%;
+  width:12%; height:40px; text-align:center"
+                       data-toggle="modal" data-target="#myModal">
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Status</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Your Appointment is Successfully Submitted</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+   
+
+    </fieldset>
+    </form>
+    </div>
+
+    <script lang="ja" type="text/javascript">
+        $(document).ready(function () {
+            $("#AppoSubmit").click(function () {
+                var My = $("#FirsName").val();
+                var Your = $("#LastName").val();
+                var Em = $("#Email").val();
+              
+                var P = $("#PhoneNo").val();
+                var AH = $("#Address").val();
+                var DOB = $("#DOBirth").val();
+                var G = $("#Gender").val(); 3
+                var C = $("#City").val();
+                var MS = $("#MStatus").val();
+                var Dp = $("#Departments").val();
+                var Of = $("#OfcNo").val();
+                var Gn = $("#GName").val();
+                var Gp = $("#GPhoneNo").val(); 3
+                var Oc = $("#Occupation").val();
+                var Cdr = $("#CDrName").val();
+                var R = $("#Responsible").val();
+                var P = $("#RelationToPatient").val();
+                alert(My);
+                alert(Your);
+
+                $.ajax({
+
+                    url: "http://localhost:35003/api/APPOINTMENT/",
+                    type: "Post",
+                    data: JSON.stringify({ FirstName: My, LastName: Your, Email: Em,  PhoneNo: P, Address: AH, DOBirth: DOB, Gender: G, City: C, MStatus: MS, Departments: Dp, OfcNo: Of, GName: Gn, GPhoneNo: Gp, Occupation: Oc, CDrName: Cdr, Responsible: R, RelationTopatient: P }), //{ Name: name, Address: address, DOB: dob },
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+
+                    },
+                    // error: function () { alert('error'); }
+                });
+            });
+        });
+
+
+
+
+        //Get Code
+
+      
+
+    </script>
+
+
+
+
+</body>
+
