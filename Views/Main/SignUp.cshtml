@@ -210,10 +210,12 @@
             });
         });
 
+       
+   
         $(document).ready(function () {
 
             // code to read selected table row cell data (values).
-            $("#SignIn").on('click', '#update', function () {
+            $("#SignIn").on('click', '#SignIn', function () {
 
                 $("#table1").hide();
                 // get the current row
@@ -222,20 +224,32 @@
                 var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
 
                 var data = id; +
-                $.ajax({
+
+   $.ajax({
                     type: 'GET',
-                    url: "http://localhost:35003/api/SIGNUP/" + data,
+                    url: "http://quickfyp61.apphb.com/api/SIGNUP" + data,
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
+
+
                         var str = "";
 
                         str += "<form action='#' method='post'>";
+                        str += "<input type='number' id='o'  value='" + data.Id + "'/>"
+                        str += "<input type='text' id='FirstName'  value='" + data.FirstName + "'/>"
+                        str += "<input type='email' id='LastName'  value='" + data.LastName + "'/>"
+                        str += "<input type='text' id='Password'  value='" + data.Password + "'/>"
+                        str += "<input type='tel' id='CPassword'  value='" + data.CPassword + "'/>"
+                        str += "<input type='number' id='Email'  value='" + data.Email + "'/>"
+                        str += "<input type='text' id='Address'  value='" + data.Address + "'/>"
+                        str += "<input type='email' id='Gender'  value='" + data.Gender + "'/>"
+                        str += "<input type='text' id='PhoneNo'  value='" + data.PhoneNo + "'/>"
+                        str += "<input type='tel' id='City'  value='" + data.City + "'/>"
+                        str += "<input type='tel' id='DOBirth'  value='" + data.DOBirth + "'/>"
+                        str += "<input type='button' onclick='SignIn()'  value='change' />"
 
-                        str += "<input type='text' id='Email' value='" + data.Email + "'/>"
-                        str += "<input type='Password' id='Password' value='" + data.Password + "'/>"
 
-                        str += "<input type='submit' onclick='SignIn' value='change' />"
 
 
                         str += "</form>";
@@ -251,6 +265,9 @@
         });
 
 
+
+
+
     </script>
 
 
@@ -258,58 +275,9 @@
 
 
 
-    <!--Get Code
 
-     $(document).ready(function () {
-     $.ajax({
-     url: "http://localhost:35003/api/SIGNUP/",
-     type: "Get",
-     datatype:'json',
-     success: function (data) {
-     console.log(data);
-     var str="";
-     for (var i = 0; i < data.length; i++)
-     {
-     str +="<tr>
-         ";
-         str +="
-         <td id='r"+ i +"'>" + data[i].FirstName + "</td>"
-         str +="
-         <td id='r"+ i+" '>" + data[i].LastName + "</td>"
-         str +="
-         <td id='r"+i+"'>"   + data[i].Password + "</td>
-         <td>
-             "
-             str +="
-         <td id='r"+i+"'>"   + data[i].CPassword + "</td>
-    "
-     str +="<td id='r"+ i +"'>" + data[i].Email + "</td>"
-     str +="<td id='r"+ i+" '>" + data[i].Address + "</td>"
-     str +="<td id='r"+i+"'>"   + data[i].Gender + "</td><td>
-         "
-         str +="
-     <td id='r"+i+"'>"   + data[i].PhoneNo + "</td>"
-     str +="<td id='r"+i+"'>"   + data[i].City + "</td>"
-         str +="
-     <td id='r"+i+"'>"   + data[i].DOBirth + "</td>"
-     "
-
-     str += "
-                <td id='r"+i+"'>"  data[i].DOB + "</td></tr>").appendTo("#SignUpTable");
-
-     str +=
-     <input type="submit" class="button" value="Sign In" id="Submit">
-     "
-     str +="<a href='" +data[i].Id+" '>Update</a>" ;
-     }
-     $('#abc').html(str);
-     },
-     error: function (msg) { alert(msg); }
-     });
-     });
-
-         -->
-    //Me Get Code
+        
+  
     <!--
 
     -->
