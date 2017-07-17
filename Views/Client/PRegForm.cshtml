@@ -221,7 +221,7 @@
         $(document).ready(function () {
 
             // code to read selected table row cell data (values).
-            $("#AppoSubmit").on('click', '#update', function () {
+            $("#RegButton").on('click', '#update', function () {
 
                 $("#table1").hide();
                 // get the current row
@@ -243,7 +243,7 @@
                         str += "<input type='text' id='email' value='" + data.Email + "'/>"
                         str += "<input type='Password' id='pass' value='" + data.Password + "'/>"
 
-                        str += "<input type='submit' onclick='AppoSubmit' value='change' />"
+                        str += "<input type='submit' onclick='RegButton' value='change' />"
 
 
                         str += "</form>";
