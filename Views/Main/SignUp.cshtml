@@ -158,6 +158,57 @@
 
 
     <script lang="ja" type="text/javascript">
+
+        $(document).ready(function () {
+
+            // code to read selected table row cell data (values).
+          
+            $.ajax({
+                type: 'GET',
+                url: "http://quickfyp61.apphb.com/api/SIGNUP" + data,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+
+
+                    var str = " ";
+                    for (var i = 0; i < data.length, i++;) {
+
+                        str += "<tr>";
+                        str += "<td id='r" + i +"'>" + data[i].id+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].FirstName+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].LastName+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].Password+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].CPassword+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].Email+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].Address+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].Gender+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].PhoneNo+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].City+ "</td>"
+                        str += "<td id='r" + i +"'>" + data[i].DOBirth+ "</td>"
+    
+
+
+           
+                        str += "</tr>";
+                    }
+                    $('#SignupFormTable').html(str);
+                },
+
+                error: function (msg) { alert(msg); }
+
+
+            });
+        });
+
+
+
+
+
+
+
+
+
         $(document).ready(function () {
             $('#linkClose').click(function () {
                 $('divError').modal('fade');
@@ -176,8 +227,8 @@
                 var j = $("#DOBirth").val();
 
                 alert(a);
-                alert(b);
-                // alert(Email);
+                alert(c);
+                alert(e);
                 //alert(Address);
                 //alert(Gender);
                 // alert(PhoneNo);
@@ -210,45 +261,8 @@
             });
         });
 
-        $(document).ready(function () {
-
-            // code to read selected table row cell data (values).
-            $("#SignUp").on('click', '#update', function () {
-
-                $("#table1").hide();
-                // get the current row
-                var currentRow = $(this).closest("tr");
-
-                var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-
-                var data = id; +
-                $.ajax({
-                    type: 'GET',
-                    url: "http://localhost:35003/api/SIGNUP/" + data,
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-                        var str = "";
-
-                        str += "<form action='#' method='post'>";
-
-                        str += "<input type='text' id='Email' value='" + data.Email + "'/>"
-                        str += "<input type='Password' id='Password' value='" + data.Password + "'/>"
-
-                        str += "<input type='submit' onclick='SignIUp' value='change' />"
-
-
-                        str += "</form>";
-
-                        $('#zaidi').html(str);
-                    },
-
-                    error: function (msg) { alert(msg); }
-
-
-                });
-            });
-        });
+   
+      
 
 
     </script>
