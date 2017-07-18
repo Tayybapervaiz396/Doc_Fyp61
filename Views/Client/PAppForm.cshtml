@@ -166,7 +166,7 @@
     <script lang="ja" type="text/javascript">
         $(document).ready(function () {
             $("#AppoSubmit").click(function () {
-                var My = $("#FirsName").val();
+                var My = $("#FirstName").val();
                 var Your = $("#LastName").val();
                 var Em = $("#Email").val();
               
@@ -191,7 +191,9 @@
 
                     url: "http://quickfyp61.apphb.com/api/APPOINTMENT",
                     type: "Post",
-                    data: JSON.stringify({ FirstName: My, LastName: Your, Email: Em,  PhoneNo: P, Address: AH, DOBirth: DOB, Gender: G, City: C, MStatus: MS, Departments: Dp, OfcNo: Of, GName: Gn, GPhoneNo: Gp, Occupation: Oc, CDrName: Cdr, Responsible: R, RelationTopatient: P }), //{ Name: name, Address: address, DOB: dob },
+                    data: JSON.stringify({
+                        FirstName: My, LastName: Your, Email: Em, PhoneNo: P, Address: AH, DOBirth: DOB, Gender: G, City: C, MStatus: MS, Departments: Dp, OfcNo: Of, GName: Gn, GPhoneNo: Gp, Occupation: Oc, CDrName: Cdr, Responsible: R, RelationTopatient: P
+                    }), //{ Name: name, Address: address, DOB: dob },
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
 
@@ -237,7 +239,7 @@
 
                         str += "</form>";
 
-                        $('#zaidi').html(str);
+                        $('#APP').html(str);
                     },
 
                     error: function (msg) { alert(msg); }
