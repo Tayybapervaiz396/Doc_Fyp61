@@ -206,49 +206,7 @@
 
 
 
-        //Get Code
-        //Get Code
-
-        $(document).ready(function () {
-
-            // code to read selected table row cell data (values).
-            $("#AppoSubmit").on('click', '#update', function () {
-
-                $("#table1").hide();
-                // get the current row
-                var currentRow = $(this).closest("tr");
-
-                var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-
-                var data = id; +
-                $.ajax({
-                    type: 'GET',
-                    url: "http://quickfyp61.apphb.com/api/APPOINTMENT" + data,
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-                        var str = "";
-
-                        str += "<form action='#' method='post'>";
-
-                        str += "<input type='text' id='email' value='" + data.Email + "'/>"
-                        str += "<input type='Password' id='pass' value='" + data.Password + "'/>"
-
-                        str += "<input type='submit' onclick='AppoSubmit' value='change' />"
-
-
-                        str += "</form>";
-
-                        $('#APP').html(str);
-                    },
-
-                    error: function (msg) { alert(msg); }
-
-
-                });
-            });
-        });
-      
+     
 
     </script>
 

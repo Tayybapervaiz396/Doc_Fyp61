@@ -54,13 +54,64 @@
 
                         </tr>
                     </thead>
-              <tbody id="APP">
-              
 
+
+                    <tbody id="AppointmentFormTable">
 
                     </tbody>
                 </table>
+                <script>
+                    $(document).ready(function () {
 
+                        // code to read selected table row cell data (values).
+
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://quickfyp61.apphb.com/api/APPOINTMENT",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+
+                                var str = " ";
+                                for (var i = 0; i < data.length; i++) {
+
+                                    str += "<tr>";
+                                    //         str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>"
+                                  
+                                    str += "<td id='r" + i + "'>" + data[i].Email + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].PhoneNo + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Address + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].DOBirth + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Gender + "</td>"
+                                 
+                                    str += "<td id='r" + i + "'>" + data[i].City + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].MStatus + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Departments + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].OfcNo + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].GName + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].GPhoneNo + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Occupation + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].CDrName + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].Responsible + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].RelationToPatient + "</td>"
+
+                                    str += "</tr>";
+                                }
+                                $('#AppointmentFormTable').html(str);
+                            },
+                            error: function (msg) { alert(msg); }
+
+
+                        });
+                    });
+
+
+
+                </script>
 
 
 

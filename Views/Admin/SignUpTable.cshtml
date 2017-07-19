@@ -29,7 +29,7 @@
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="SignupFormTable">
 
 
 
@@ -40,6 +40,48 @@
 
 
                 </table>
+
+                <script>
+                    $(document).ready(function () {
+
+                        // code to read selected table row cell data (values).
+
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://quickfyp61.apphb.com/api/SIGNUP",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+
+                                var str = " ";
+                                for (var i = 0; i < data.length; i++) {
+
+                                    str += "<tr>";
+                                    //         str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Password + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].CPassword + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Email + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Address + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Gender + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].PhoneNo + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].City + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].DOBirth + "</td>"
+
+                                    str += "</tr>";
+                                }
+                                $('#SignupFormTable').html(str);
+                            },
+                            error: function (msg) { alert(msg); }
+
+
+                        });
+                    });
+
+
+
+                </script>
                 <!--
                     Delete Code
                 -->
