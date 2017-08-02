@@ -59,9 +59,10 @@
             $("#SignIn").click(function () {
                 var a = $("#Email").val();
                 var b = $("#Password").val();
-
+                alert(a);
+                alert(b);
                 $.ajax({
-                    url: "http://quickfyp61.apphb.com/api/LOGIN",
+                    url: "http://localhost:35003/api/LOGIN",
                     type: "Post",
                     data: JSON.stringify({ Email: a, Password: b }),
 
