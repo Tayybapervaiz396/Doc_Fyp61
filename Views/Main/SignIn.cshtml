@@ -54,6 +54,39 @@
         </div>
      
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#SignIn").click(function () {
+                var a = $("#Email").val();
+                var b = $("#Password").val();
+
+                $.ajax({
+                    url: "http://quickfyp61.apphb.com/api/LOGIN",
+                    type: "Post",
+                    data: JSON.stringify({ Email: a, Password: b }),
+
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (response) {
+                        var result1 = response.Result;
+                        var code1 = response.Code;
+                        var id1 = response.id;
+                        alert(code1);
+                        if (code1 == 01) {
+                            window.location.href = "/Admin/AdminDash";
+                        }
+                        else if (code1 == 02) {
+                            window.location.href = "/Client/DashBoard";
+                        }
+                       
+                       
+                    },
+                    error: function () { alert('error'); }
+                });
+            });
+        });
+    </script>
+
+
 
 
    
