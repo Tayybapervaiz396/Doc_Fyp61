@@ -25,7 +25,7 @@
                             <th>Phone No</th>
                             <th>City</th>
                             <th>Date Of Birth</th>
-                            <th>Action</th>
+                            <th>Role</th>
 
                         </tr>
                     </thead>
@@ -68,7 +68,7 @@
                                     str += "<td id='r" + i + "'>" + data[i].PhoneNo + "</td>"
                                     str += "<td id='r" + i + "'>" + data[i].City + "</td>"
                                     str += "<td id='r" + i + "'>" + data[i].DOBirth + "</td>"
-
+                                    str += "<td id='r" + i + "'>" + data[i].Role + "</td>"
                                     str += "</tr>";
                                 }
                                 $('#SignupFormTable').html(str);

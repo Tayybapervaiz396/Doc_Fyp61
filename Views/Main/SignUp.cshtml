@@ -12,18 +12,10 @@
 <link href="~/Content/custom.css" rel="stylesheet" />
 
 
-<link href="~/Content/SignInSheet.css" rel="stylesheet" />
+
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-    'use strict';
-    $('input[type="password"]').on('focus', function () {
-        $('*').addClass('password');
-    }).on('focusout', function () {
-        $('*').removeClass('password');
-    });
-    ;
-</script>
+
 
 
 
@@ -31,124 +23,69 @@
 
 
    
-    <div class="login-wrap " style="margin-top:7%">
-    
-        <div class="login-html">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-            <div class="login-form">
-                <div class="sign-in-htm">
-                    @using (Html.BeginForm("Login", "Main", FormMethod.Post))
-                    {
+    <div class="container" style=" background-color: #333; border-radius:5%; width:50% ;
+ height:550%;  margin-top:8%; margin-bottom:6%">
+        <h1>Sign Up  Here</h1>
 
-                        <h1> Sign In To Doctor Quick</h1>
-                        <div class="owl">
-                            <div class="hand"></div>
-                            <div class="hand hand-r"></div>
-                            <div class="arms">
-                                <div class="arm"></div>
-                                <div class="arm arm-r"></div>
-                            </div>
-                        </div>
-                        <div class="form" style="background-color: rgba(97, 65, 39, 1)">
-                            <div class="control">
-                                <label for="email" class="fa fa-envelope"></label>
-                                <input id="Email" required class="form-control" placeholder="Email" type="email">
-                            </div>
-                            <div class="control">
-                                <label for="password" class="fa fa-asterisk"></label>
-                                <input class="form-control" required id="Password" placeholder="Password" type="password">
-                            </div>
+        <form  method="post" style="margin-top:1%; margin-bottom:2%; ">
+            <fieldset id="inputs">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input id="FirstName" class="form-control" type="text" name="FirstName"
+                               placeholder="First Name*" required /><br />
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input id="LastName" class="form-control" type="text" name="LastName"
+                               placeholder="Last Name*" required /><br />
+                    </div>
 
-                            <button style="margin-left:28%" type="submit" id="SignIn" value="Sign In"> Sign In </button>
-                          
-                        </div>
-                          <div>
-                                @if (TempData["Error"] != null)
-                                {
-                                    <div class="alert alert-danger">
-                                        <p>@TempData["Error"].ToString()</p>
-                                    </div>
-                                }
-                            </div>
-
-
-                    }
 
                 </div>
-                <div class="sign-up-htm">
-
-                    <!-- ./container -->
-                    <!--SignUp Code-->
-                    <h1>Sign Up To Make Your Account  </h1>
-
-                    <form >
-                        <fieldset id="inputs">
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <input id="FirstName" style="background-color:rgba(194, 112, 76, 1); color:white" class="form-control" type="text" name="FirstName"
-                                           placeholder="First Name*" required /><br />
-                                </div>
-                                <div class="col-sm-6 ">
-                                    <input id="LastName" class="form-control" type="text" name="LastName"
-                                           placeholder="Last Name*" required style="background-color:rgba(194, 112, 76, 1); color:white" /><br />
-                                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" id="Password" name="Password" placeholder="Password*"
+                               type="password" />
+                        <br />
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input id="CPassword" type="password" class="form-control" name="CPassword"
+                               placeholder=" Confirm Password*" required />
+                        <br />
+                    </div>
 
 
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <input class="form-control" id="Password" style="background-color:rgba(194, 112, 76, 1); color:white" name="Password" placeholder="Password*"
-                                           type="password" />
-                                    <br />
-                                </div>
-                                <div class="col-sm-6 ">
-                                    <input id="CPassword" style="background-color:rgba(194, 112, 76, 1); color:white" style="background-color:rgba(194, 112, 76, 1); color:white" type="password" class="form-control" name="CPassword"
-                                           placeholder=" Confirm Password*" required />
-                                    <br />
-                                </div>
+                </div><input id="Email" type="email" class="form-control" style="width: 100%; " name="Email" placeholder="Email*" required><br />
 
-
-                            </div><input id="Email" style="background-color:rgba(194, 112, 76, 1); color:white"  type="email" class="form-control" style="background-color:rgba(194, 112, 76, 1); color:white" style="width: 100%; " name="Email" placeholder="Email*" required><br />
-
-                            <input id="Address" style="background-color:rgba(194, 112, 76, 1); color:white" class="form-control" type="text" style="width: 100%; " name="Address" placeholder="Address*" required /><br />
+                <input id="Address" class="form-control" type="text" style="width: 100%; " name="Address" placeholder="Address*" required /><br />
 
 
 
-                            <label style=" color:white">Gender:</label>  &nbsp;<input value="Female" type="radio" name="Gender" />
-                            <label style=" color:white">
-                                Female
-                            </label>
-                            <input type="radio"  value="Male" name="Gender" id="Gender" /> &nbsp;<label style=" color:white"> Male</label>
-                            <br><br>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <input id="PhoneNo" style="background-color:rgba(194, 112, 76, 1); color:white"  type="tel" class="form-control" name="PhoneNo" placeholder="Phone No*" required /><br />
-                                </div>
-                                <div class="col-sm-6 ">
-                                    <input id="City" style="background-color:rgba(194, 112, 76, 1); color:white"  class="form-control" type="text" name="City" placeholder="City*" required /><br />
-                                </div>
+                <label style="margin-left:10%; color:white">Gender:</label>  &nbsp;<input type="radio" name="Gender" />
+                <label style=" color:white">
+                    Female
+                </label>
+                <input type="radio" name="Gender" />&nbsp;<label style=" color:white"> Male</label>
+                <br><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input id="PhoneNo" type="tel" class="form-control" name="PhoneNo" placeholder="Phone No*" required /><br />
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input id="City" class="form-control" type="text" name="City" placeholder="City*" required /><br />
+                    </div>
 
 
-                            </div>
+                </div>
 
-                            <input id="DOBirth" style="background-color:rgba(194, 112, 76, 1); color:white"  class="form-control" type="date" style="width: 100%; " name="DOBirth" placeholder=" Date of Birth*" required /><br />
+                <input id="DOBirth" class="form-control" type="date" style="width: 100%; " name="DOBirth" placeholder=" Date of Birth*" required /><br />
+                <input id="Role" class="form-control" type="text" style="width: 100%; " name="Role" placeholder=" Role*" required /><br />
 
-                            <button type="submit" id="SUButton" value="Sign Up" style=" margin-left:45%; margin-bottom:2%; border-radius: 10px; font-family: Gabriola;
+                <button type="submit" id="SUButton" value="SignUp" style=" margin-left:45%; margin-bottom:2%; border-radius: 10px; font-family: Gabriola;
                   color: rgba(194, 112, 76, 1); font-size:25px; border: solid double">
-                                Register
-                            </button>
-                        </fieldset>
-                    </form>
-
-
-
-
-
-                </div>
-            </div>
-        </div>
+                    Register
+                </button>
+            </fieldset>
+        </form>
     </div>
 
 
@@ -176,6 +113,7 @@
                 var h = $("#PhoneNo").val();
                 var i = $("#City").val();
                 var j = $("#DOBirth").val();
+                var k = $("#Role").val();
 
                 alert(a);
                 alert(c);
@@ -191,7 +129,7 @@
                     data: JSON.stringify({
                         FirstName: a, LastName: b, Password: c,
                         CPassword: d, Email: e, Address: f, Gender: g, PhoneNo: h,
-                        City: i, DOBirth: j
+                        City: i, DOBirth: j, Role: k
                     }), //{ Name: name, Address: address, DOB: dob },
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {

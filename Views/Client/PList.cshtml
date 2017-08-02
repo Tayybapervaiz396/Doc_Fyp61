@@ -54,16 +54,29 @@
                                          for (var i = 0; i < data.length; i++) {
                                              str += "<tr>";
                                              str += "<td id='r" + i + "'>" + data[i].Id + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].Password + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].CPassword + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].Email + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].Gender + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].PhoneNo + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].City + "</td>";
-                                             str += "<td id='r" + i + "'>" + data[i].DOBirth + "</td>";
+                                         
+                                             str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].LastName + "</td>"
+
+                                             str += "<td id='r" + i + "'>" + data[i].Email + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].PhoneNo + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].Address + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].DOBirth + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].Gender + "</td>"
+
+                                             str += "<td id='r" + i + "'>" + data[i].City + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].MStatus + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].Departments + "</td>"
+
+                                             str += "<td id='r" + i + "'>" + data[i].OfcNo + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].GName + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].GPhoneNo + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].Occupation + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].CDrName + "</td>"
+
+                                             str += "<td id='r" + i + "'>" + data[i].Responsible + "</td>"
+                                             str += "<td id='r" + i + "'>" + data[i].RelationToPatient + "</td>"
+
                                              str += "</tr>";
                                          }
 
@@ -89,17 +102,27 @@
                                        
                                         <tr style="height:45px">
                                             <th>Patient Id</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Password</th>
-                                            <th> Confirm Password</th>
-                                            <th>Email</th>
-                                            <th>Home Address</th>
-                                            <th>Gender</th>
+                                            <th>Firstname</th>
+                                            <th>Lastname</th>
+                                            <th>Email Address</th>
                                             <th>Phone No</th>
+                                            <th>Address</th>
+                                            <th>Date of Birth</th>
+                                            <th>Gender </th>
                                             <th>City</th>
-                                            <th>Date Of Birth</th>
-
+                                            <th>Martial Status</th>
+                                            <th>Department</th>
+                                            <th>Office Phone No</th>
+                                           
+                                        
+                                           
+                                             <th>Guardian Name</th>
+                                            <th>Guardian Phone No</th>
+                                               <th>Occupation</th>
+                                            <th>Consulting Dr.Name </th>
+                                          
+                                            <th>Responsible For Patient?</th>
+                                            <th>Relationship To patient</th>
                                         </tr>
 
                                            
@@ -112,16 +135,28 @@
                                         {
                                             <tr>
                                                 <td>@x.Id</td>
+
                                                 <td>@x.FirstName</td>
                                                 <td>@x.LastName</td>
-                                                <td>@x.Password</td>
-                                                <td>@x.CPassword</td>
                                                 <td>@x.Email</td>
+                                             <td>@x.PhoneNo</td>
                                                 <td>@x.Address</td>
-                                                <td>@x.Gender</td>
-                                                <td>@x.PhoneNo</td>
-                                                <td>@x.City</td>
                                                 <td>@x.DOBirth</td>
+                                                <td>@x.Gender</td>
+
+                                                <td>@x.City</td>
+                                                <td>@x.MStatus</td>
+                                                <td>@x.Departments</td>
+                                                <td>@x.OfcNo</td>
+                                                <td>@x.GName</td>
+                                                <td>@x.GPhoneNo</td>
+                                                <td>@x.Occupation</td>
+                                                <td>@x.CDrName</td>
+                                                <td>@x.Responsible</td>
+
+                                                <td>@x.RelationToPatient</td>
+                                               
+
                                             </tr>
 
                                         }
