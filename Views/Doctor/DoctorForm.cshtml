@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "DoctorForm";
+    Layout = "~/Views/DoctorLayout.cshtml";
+     <link href="~/Content/DashboardSheet.css" rel="stylesheet" />
+}
+
+<body style="background-color: rgba(81, 92, 82, 1);">
+    <!-- ./container -->
+    <div class="container" style=" background-color:#333; border-radius:5%; width:55% ;
+ height:400%;  margin-top:11%; margin-bottom:8%">
+        <h1 style="color:white; font-size:300%; margin-left:25%">Doctor's Information</h1>
+
+        <form style=" margin-bottom:02%; ">
+            <fieldset id="inputs">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" id="FirstName" required name="FirstName" placeholder="FirstName" type="text" /><br />
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input class="form-control" id="LastName" required name="LastName" placeholder="LastName" type="text" /><br />
+  
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input id="Email"  class="form-control" type="email" name="Email" placeholder="Email Address" required /><br />
+                    </div>
+                    <div class="col-sm-6 ">
+                        <select class=" form-control contr" id="Spec" name="spec" 
+                                required >
+
+                           
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dentisry">Dentisry</option>
+                            <option value="Emergency Room">Emergency Room</option>
+                            <option value="Surgury">Surgury</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Laboratory">Laboratory</option>
+                        </select>
+                        
+                        <br />
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" id="Time" required name="Time" placeholder="Avail timing" type="text" /><br />
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input id="Days" class="form-control" type="text"
+                               name="Days" placeholder="Working Days ex. monday to thursday" required /><br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 ">
+                        <select  required id="Status" name="Status" class="form-control" style="width:100%">
+
+                         
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                        </select><br />
+
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input id="Fee"  type="number" class="form-control" style="width:100%" name="Fee" placeholder=" Fee Charges" required />
+
+                        <br />
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 ">
+                        <select id="Gender" name="Gender" class="form-control" style="width:100%">
+
+                           
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select><br />
+
+                    </div>
+                        <div class="col-sm-6">
+                        <input class="form-control" id="Age" required name="Age" placeholder="Enter your age" type="number" /><br />
+                    </div>
+                   
+                </div>
+
+                <button type="submit" id="DocF" value="DocF" style=" margin-left:45%; margin-bottom:2%; border-radius: 10px; font-family: Gabriola;
+                  color: rgba(194, 112, 76, 1); font-size:25px; border: solid double">
+                  Submit
+                </button>
+
+
+
+
+
+
+
+                
+            </fieldset>
+        </form>
+    </div>
+    <script lang="ja" type="text/javascript">
+
+
+
+
+        $("#DocF").click(function () {
+            var aa = $("#FirstName").val();
+            var bb = $("#LastName").val();
+
+            var cc = $("#Email").val();
+            var c = $("#Spec").val();
+
+            var e = $("#Time").val();
+            var f = $("#Days").val();
+            var g = $("#Status").val();
+
+            var h = $("#Fee").val();
+            var i = $("#Gender").val();
+
+            var j = $("#Age").val();
+            alert(aa);
+
+            alert(bb);
+            alert(cc);
+            //alert(Address);
+
+
+            $.ajax({
+
+                url: "http://quickfyp61.apphb.com/api/DOCTORAPI",
+                type: "Post",
+                data: JSON.stringify({
+                    FirstName: aa, LastName: bb, Email: cc, Spec: c, Time: e, Days: f, Status: g, Fee: h, Gender: i, Age: j
+                }), //{ Name: name, Address: address, DOB: dob },
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+
+                },
+                success: function () {
+                    $('SuccessModal').modal('show');
+                },
+                error: function (jqXHR) {
+                    $('divErrorText').text(jqXHR.responseText);
+                    $('divError').show('fade');
+                }
+
+            });
+
+        });
+
+
+
+
+    </script>
+
+
+</body>
+
