@@ -44,7 +44,7 @@
 
                         $.ajax({
                             type: 'GET',
-                            url: "http://quickfyp61.apphb.com/api/SIGNUP",
+                            url: "http://quickfyp61.apphb.com/api/DOCTORAPI",
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -87,7 +87,7 @@
                             // debugger;
                             var id = $("#Id").val();
                             $.ajax({
-                                url: "http://quickfyp61.apphb.com/api/SIGNUP " + id,
+                                url: "http://quickfyp61.apphb.com/api/DOCTORAPI " + id,
                                 type: "Delete",
                                 success: function (data) {
                                     alert('Deleted Successfully');
@@ -125,7 +125,7 @@
 
 
                             $.ajax({
-                                url: "http://quickfyp61.apphb.com/api/SIGNUP",
+                                url: "http://quickfyp61.apphb.com/api/DOCTORAPI",
                                 type: "Put",
                                 data: JSON.stringify({
                                     FirstName: a, LastName: b, Password: c,
