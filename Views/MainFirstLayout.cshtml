@@ -155,16 +155,20 @@
                         <div class="row" style=" margin-bottom: 1%">
                             <div class="col-lg-6 col-sm-5 ">
                                 <h1 style="text-align:left">Leave a Comment</h1>
-                                <input id="FirstName" class="form-control" type="text" name="FirstName" style="width:65%" placeholder=" Name*" required /><br />
-                                <input id="email" type="Email" class="form-control" name="Email" style="width:65%" placeholder="Email*" required><br />
-                                <textarea class="form-control"  placeholder="Leave a Comment...." name="Comment" style="width:85%; height:120px" id="comment" style="margin: 0px -4px 0px 0px; height: 135px; width: 378px;"></textarea>
-                                <input class="form-control" type='hidden' name='cmnt' id='Comment' value='' />
+                                <input  id="FirstName" class="form-control" type="text" name="FirstName" style="width:65%" placeholder=" Name*" required  /><br />
+                                <input id="Email" type="email" class="form-control" name="Email" style="width:65%" placeholder="Email*" required><br />
+                             <!-- <textarea  class="form-control"    placeholder="Leave a Comment...." name="Comment" style="width:85%; height:120px" id="comment" style="margin: 0px -4px 0px 0px; height: 135px; width: 378px;"></textarea>
+                                <input class="form-control" type='text' name='Comment' id='Comment' value='' />
+                           -->    
+                                  <input id="Comment" class="form-control" type="text" name="Comment" style="width:65%; height:-390%" placeholder=" Name*" required/><br />
+
                                 <br>
-                                <b>
-                                    <button type="submit" id="Comment" value="Comment" >
-                                      Submit
+                            
+
+                                    <button type="submit" id="Comment1" value="Comment1" style=" margin-left:45%; margin-bottom:2%; border-radius: 10px; font-family: Gabriola;
+                  color: rgba(194, 112, 76, 1); font-size:25px; border: solid double">
+                                        Register
                                     </button>
-                                </b>
                                 <div class="clear"></div>
                             </div>
                         </div>
@@ -181,15 +185,15 @@
 
    
 
-            $("#Comment").click(function () {
-                var a = $("#FirstName").val();
+            $("#Comment1").click(function () {
+                var aa = $("#FirstName").val();
              
-                var e = $("#Email").val();
-                var c = $("#Comment").val();
-                alert(a);
+                var bb = $("#Email").val();
+                var cc = $("#Comment").val();
+                alert(aa);
               
-                alert(e);
-                alert(c);
+                alert(bb);
+                alert(cc);
                 //alert(Address);
 
 
@@ -198,20 +202,29 @@
                     url: "http://quickfyp61.apphb.com/api/COMMENT",
                     type: "Post",
                     data: JSON.stringify({
-                        FirstName: a, Email: e, Comment: c,
-                       
+                        FirstName: aa, Email: bb, Comment: cc
                     }), //{ Name: name, Address: address, DOB: dob },
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
 
                     },
-                   
+                    success: function () {
+                        $('SuccessModal').modal('show');
+                    },
+                    error: function (jqXHR) {
+                        $('divErrorText').text(jqXHR.responseText);
+                        $('divError').show('fade');
+                    }
+
                 });
 
             });
+           
+
      
 
     </script>
 
 </body>
+
 </html>
