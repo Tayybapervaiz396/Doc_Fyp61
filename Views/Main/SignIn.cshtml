@@ -65,7 +65,7 @@
                 alert(a);
                 alert(b);
                 $.ajax({
-                    url: "http://localhost:35003/api/LOGIN",
+                    url: "http://quickfyp61.apphb.com/api/LOGIN",
                     type: "Post",
                     data: JSON.stringify({ Email: a, Password: b }),
 
@@ -82,7 +82,9 @@
                             window.location.href = "/Client/DashBoard";
                         }
                        
-                       
+                        else if (code1 == 03) {
+                            window.location.href = "/Doctor/DocBaord";
+                        }
                     },
                     error: function () { alert('error'); }
                 });
