@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="68ed0478dff3465bb0007d53eeed8e44" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="Database1Model.RegstrTable" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.RegstrTable" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.SignUpTable" Width="1.5" PointX="2.5" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.PAppoTable" Width="1.5" PointX="4.25" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.CmntTable" Width="1.5" PointX="5.875" PointY="0.625" />
