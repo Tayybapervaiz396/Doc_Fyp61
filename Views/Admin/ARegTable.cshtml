@@ -18,7 +18,7 @@
                             <th>Firstname</th>
                             <th>Lastname</th>
                             <th>Email Address</th>
-                            <th>Password</th>
+                           
                             
                             <th>Phone No</th>
                             <th>Address</th>
@@ -41,16 +41,71 @@
                             <th> Responsible for patient?</th>
                             <th>Emergency No</th>
                             <th>Relationship to patient</th>
-                   
+                           
 
                         </tr>
                     </thead>
-                <tbody>
+                <tbody id="#RTable">
                      
                    
 
                     </tbody> 
                 </table>
+
+                <script>
+                    $(document).ready(function () {
+
+                        // code to read selected table row cell data (values).
+
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://quickfyp61.apphb.com/api/REGISTER",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+
+                                var str = " ";
+                                for (var i = 0; i < data.length; i++) {
+
+                                    str += "<tr>";
+                                    //         str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].Email + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].PhoneNo + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Address + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].DOBirth + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Gender + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].City + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].MartialStatus + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Department + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].OfcNo + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].GuardianName + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].GPhone + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Occupation + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].ConsultingDrName + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].Responsible + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].EmergencyNo + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].Relationship + "</td>"
+
+                                    str += "</tr>";
+                                }
+                                $('#RTable').html(str);
+                            },
+                            error: function (msg) { alert(msg); }
+
+
+                        });
+                    });
+
+
+
+                </script>
+
 
 
 

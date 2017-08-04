@@ -170,7 +170,7 @@
                 var Aa = $("#FirstName").val();
                 var Bb = $("#LastName").val();
                 var Cc = $("#Email").val();
-               
+           
                 var Ee = $("#PhoneNo").val();
               
                 var Ff = $("#Address").val();
@@ -180,13 +180,13 @@
                 var Ii = $("#City").val();
                 var Jj = $("#MartialStatus").val();
                 var Kk = $("#Department").val();
-                var Ll = $("#WardNo").val();
+              //  var Ll = $("#WardNo").val();
                 var Mm = $("#OfcNo").val();
                 var Nn = $("#GuardianName").val();
                 var Oo = $("#GPhone").val(); 3
                 var Pp = $("#Occupation").val();
                 var Qq = $("#ConsultingDrName").val();
-                var Rr = $("#BedNo").val();
+              //  var Rr = $("#BedNo").val();
                 var Ss = $("#Responsible").val();
                 var Tt = $("#EmergencyNo").val();
                 var Uu = $("#Relationship").val();
@@ -199,10 +199,10 @@
                     data: JSON.stringify({
                         FirstName: Aa, LastName: Bb, Email: Cc,  PhoneNo: Ee,
                         Address: Ff, DOBirth: Gg, Gender: Hh,
-                        City: Ii, MartialStatus: Jj, Department: Kk, WardNo: Ll,
+                        City: Ii, MartialStatus: Jj, Department: Kk, 
                         OfcNo: Mm, GuardianName: Nn,
 
-                        GPhone: Oo, Occupation: Pp, ConsultingDrName: Qq, BedNo: Rr,
+                        GPhone: Oo, Occupation: Pp, ConsultingDrName: Qq,
                         Responsible: Ss, EmergencyNo: Tt,
                       Relationship: Uu
 
@@ -218,46 +218,7 @@
 
         //Get Code
 
-        $(document).ready(function () {
-
-            // code to read selected table row cell data (values).
-            $("#RegButton").on('click', '#update', function () {
-
-                $("#table1").hide();
-                // get the current row
-                var currentRow = $(this).closest("tr");
-
-                var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-
-                var data = id; +
-                $.ajax({
-                    type: 'GET',
-                    url: "http://quickfyp61.apphb.com/api/REGISTER" + data,
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-                        var str = "";
-
-                        str += "<form action='#' method='post'>";
-
-                        str += "<input type='text' id='email' value='" + data.Email + "'/>"
-                        str += "<input type='Password' id='pass' value='" + data.Password + "'/>"
-
-                        str += "<input type='submit' onclick='RegButton' value='change' />"
-
-
-                        str += "</form>";
-
-                        $('#zaidi').html(str);
-                    },
-
-                    error: function (msg) { alert(msg); }
-
-
-                });
-            });
-        });
-
+     
 
     </script>
 
